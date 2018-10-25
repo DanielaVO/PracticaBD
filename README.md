@@ -1,0 +1,2 @@
+# PracticaBD
+RelacionalVSnoSQL
