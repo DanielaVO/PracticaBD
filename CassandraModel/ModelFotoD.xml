@@ -1,0 +1,539 @@
+<KDMPROJECT>
+  <ERMODEL>
+    <mxGraphModel dx="7" dy="33" grid="1" guides="1" tooltips="1" connect="1" fold="1" page="0" pageScale="1" pageWidth="826" pageHeight="1169">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="2" value="Vehiculos" style="whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="190" y="111" width="100" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="3" value="FotoDetecciones" style="whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="630" y="111" width="110" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="4" value="tiene" style="shape=card;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="400" y="103" width="130" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="1" edge="1" source="2" target="4" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="6" value="n" style="entryX=0;entryY=0.5" edge="1" source="4" target="3" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" value="placa" style="ellipse;fontStyle=4" vertex="1" parent="1">
+          <mxGeometry x="190" y="40" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="8" style="entryX=0.5;entryY=1" edge="1" source="2" target="7" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="9" value="fecha" style="ellipse;fontStyle=4" vertex="1" parent="1">
+          <mxGeometry x="640" y="50.5" width="80" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="velocidad" style="ellipse" vertex="1" parent="1">
+          <mxGeometry x="780" y="116" width="80" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="15" edge="1" source="3" target="11" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="16" edge="1" source="3" target="9" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="17" value="Lugares" style="whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="645" y="333" width="100" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="18" value="id" style="ellipse;fontStyle=4" vertex="1" parent="1">
+          <mxGeometry x="760" y="274" width="80" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="19" edge="1" source="17" target="18" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="20" value="nombre" style="ellipse" vertex="1" parent="1">
+          <mxGeometry x="770" y="333" width="80" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="21" edge="1" source="17" target="20" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="22" value="registra" style="shape=card;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="630" y="208.5" width="130" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="23" value="1" style="entryX=0.5;entryY=1;entryPerimeter=0" edge="1" source="17" target="22" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="24" value="m" style="entryX=0.5;entryY=1" edge="1" source="22" target="3" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+    <KEYS_JSON>
+{}    </KEYS_JSON>
+  </ERMODEL>
+  <ACCESS_PATTERNS width="1150px" height="" left="130px" top="165px">
+    <Q1>
+      <APTYPE>
+simple      </APTYPE>
+      <GR>
+        <ATTRIBUTE>
+          <DIV>
+Vehiculos.placa          </DIV>
+        </ATTRIBUTE>
+        <VRS>
+value        </VRS>
+      </GR>
+      <GR>
+        <ATTRIBUTE>
+          <DIV>
+FotoDetecciones.fecha          </DIV>
+        </ATTRIBUTE>
+        <VRS>
+range        </VRS>
+      </GR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+FotoDetecciones.fecha          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+Lugares.nombre          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <DESCR>
+Dado el vehículo(placas) y rango de fechas, se puede consultar las infracciones (mas de 80km).
+Listando fecha, hora, lugar.      </DESCR>
+    </Q1>
+    <Q2>
+      <APTYPE>
+simple      </APTYPE>
+      <GR>
+        <ATTRIBUTE>
+          <DIV>
+FotoDetecciones.fecha          </DIV>
+        </ATTRIBUTE>
+        <VRS>
+value        </VRS>
+      </GR>
+      <GR>
+        <ATTRIBUTE>
+          <DIV>
+Vehiculos.placa          </DIV>
+        </ATTRIBUTE>
+        <VRS>
+value        </VRS>
+      </GR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+Lugares.nombre          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+Lugares.id          </DIV>
+        </ATTRIBUTE>
+        <CNT/>
+      </FR>
+      <DESCR>
+Dada el año, mes y el vehículo(placas), se puede consultar las estadísticas de total de pasos por cada
+lugar. Listando lugar y número de pasadas.      </DESCR>
+    </Q2>
+    <Q3>
+      <APTYPE>
+simple      </APTYPE>
+      <GR>
+        <ATTRIBUTE>
+          <DIV>
+            <DIV>
+FotoDetecciones.fecha                      </DIV>
+          </DIV>
+        </ATTRIBUTE>
+        <VRS>
+value        </VRS>
+      </GR>
+      <GR>
+        <ATTRIBUTE>
+          <DIV>
+            <DIV>
+Lugares.id                      </DIV>
+          </DIV>
+        </ATTRIBUTE>
+        <VRS>
+value        </VRS>
+      </GR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+FotoDetecciones.fecha          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+Vehiculos.placa          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+FotoDetecciones.velocidad          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <DESCR>
+Dada una fecha y lugar se puede consultar las horas del día, vehículo(placas) y velocidad      </DESCR>
+    </Q3>
+    <Q4>
+      <APTYPE>
+simple      </APTYPE>
+      <GR>
+        <ATTRIBUTE>
+          <DIV>
+            <DIV>
+FotoDetecciones.fecha                      </DIV>
+          </DIV>
+        </ATTRIBUTE>
+        <VRS>
+value        </VRS>
+      </GR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+FotoDetecciones.fecha          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+Lugares.nombre          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+Vehiculos.placa          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <DESCR>
+Dado una fecha se puede consultar los vehículos(placas) que sobrepasaron 80km, listando hora del
+día, lugar y placa.      </DESCR>
+    </Q4>
+    <Q5>
+      <APTYPE>
+simple      </APTYPE>
+      <GR>
+        <ATTRIBUTE>
+          <DIV>
+            <DIV>
+Usuarios.id                      </DIV>
+          </DIV>
+        </ATTRIBUTE>
+        <VRS>
+value        </VRS>
+      </GR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+            <DIV>
+Vehiculos.placa                      </DIV>
+          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+            <DIV>
+Lugares.nombre                      </DIV>
+          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+            <DIV>
+FotoDetecciones.fecha                      </DIV>
+          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+            <DIV>
+FotoDetecciones.velocidad                      </DIV>
+          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+            <DIV>
+FotoDetecciones.id                      </DIV>
+          </DIV>
+        </ATTRIBUTE>
+        <CNT/>
+      </FR>
+      <DESCR>
+Dado el id del usuario listar la información de las foto detecciones de sus diferentes autos. Listando placa, lugar, fecha, velocidad y numero de foto detecciones.      </DESCR>
+    </Q5>
+    <Q6>
+      <APTYPE>
+simple      </APTYPE>
+      <GR>
+        <ATTRIBUTE>
+          <DIV>
+            <DIV>
+Lugares.id                      </DIV>
+          </DIV>
+        </ATTRIBUTE>
+        <VRS>
+value        </VRS>
+      </GR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+FotoDetecciones.fecha          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+FotoDetecciones.velocidad          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <FR>
+        <ATTRIBUTE>
+          <DIV>
+Vehiculos.placa          </DIV>
+        </ATTRIBUTE>
+      </FR>
+      <DESCR>
+Listar toda la información de las foto detecciones de un lugar determinado. Listando fecha, velocidad, usuario, vehículo(placa), hora.      </DESCR>
+    </Q6>
+  </ACCESS_PATTERNS>
+  <LOGICAL_MODEL>
+    <Q1 qTemplate="SELECT |s|FotoDetecciones__fecha|e|, |s|Lugares__nombre|e| FROM |s|tableName|e| WHERE |s|Vehiculos__placa|e|=? and |s|FotoDetecciones__fecha|e|&gt;?;">
+      <tbl>
+        <table0/>
+        <columns>
+          <placa origName="Vehiculos__placa">
+            <K/>
+            <NOCLUST/>
+          </placa>
+          <fecha origName="FotoDetecciones__fecha">
+            <C>
+ASC            </C>
+          </fecha>
+          <lugares_nombre origName="Lugares__nombre"/>
+        </columns>
+      </tbl>
+    </Q1>
+    <Q2 qTemplate="SELECT |s|Lugares__nombre|e|, |s|Lugares__id|e| FROM |s|tableName|e| WHERE |s|FotoDetecciones__fecha|e|=? and |s|Vehiculos__placa|e|=?;">
+      <tbl>
+        <table1/>
+        <columns>
+          <fecha origName="FotoDetecciones__fecha">
+            <K/>
+            <NOCLUST/>
+          </fecha>
+          <placa origName="Vehiculos__placa">
+            <K/>
+            <NOCLUST/>
+          </placa>
+          <lugares_nombre origName="Lugares__nombre">
+            <C>
+ASC            </C>
+          </lugares_nombre>
+          <lugares_id origName="Lugares__id">
+            <CNT/>
+            <S/>
+            <NOCLUST/>
+          </lugares_id>
+        </columns>
+      </tbl>
+      <tbl>
+        <table2/>
+        <columns>
+          <placa origName="Vehiculos__placa">
+            <K/>
+            <NOCLUST/>
+          </placa>
+          <fecha origName="FotoDetecciones__fecha">
+            <K/>
+            <NOCLUST/>
+          </fecha>
+          <lugares_nombre origName="Lugares__nombre">
+            <C>
+ASC            </C>
+          </lugares_nombre>
+          <lugares_id origName="Lugares__id">
+            <CNT/>
+            <S/>
+            <NOCLUST/>
+          </lugares_id>
+        </columns>
+      </tbl>
+      <tbl>
+        <table3/>
+        <columns>
+          <fecha origName="FotoDetecciones__fecha">
+            <K/>
+            <NOCLUST/>
+          </fecha>
+          <placa origName="Vehiculos__placa">
+            <C>
+ASC            </C>
+          </placa>
+          <lugares_nombre origName="Lugares__nombre">
+            <C>
+ASC            </C>
+          </lugares_nombre>
+          <lugares_id origName="Lugares__id">
+            <CNT/>
+            <S/>
+            <NOCLUST/>
+          </lugares_id>
+        </columns>
+      </tbl>
+      <tbl>
+        <table4/>
+        <columns>
+          <placa origName="Vehiculos__placa">
+            <K/>
+            <NOCLUST/>
+          </placa>
+          <fecha origName="FotoDetecciones__fecha">
+            <C>
+ASC            </C>
+          </fecha>
+          <lugares_nombre origName="Lugares__nombre">
+            <C>
+ASC            </C>
+          </lugares_nombre>
+          <lugares_id origName="Lugares__id">
+            <CNT/>
+            <NOCLUST/>
+          </lugares_id>
+        </columns>
+      </tbl>
+    </Q2>
+    <Q3 qTemplate="SELECT |s|FotoDetecciones__fecha|e|, |s|Vehiculos__placa|e|, |s|FotoDetecciones__velocidad|e| FROM |s|tableName|e| WHERE |s|FotoDetecciones__fecha|e|=? and |s|Lugares__id|e|=?;">
+      <tbl>
+        <table5/>
+        <columns>
+          <fecha origName="FotoDetecciones__fecha">
+            <K/>
+            <NOCLUST/>
+          </fecha>
+          <lugares_id origName="Lugares__id">
+            <K/>
+            <NOCLUST/>
+          </lugares_id>
+          <placa origName="Vehiculos__placa"/>
+          <velocidad origName="FotoDetecciones__velocidad"/>
+        </columns>
+      </tbl>
+      <tbl>
+        <table6/>
+        <columns>
+          <lugares_id origName="Lugares__id">
+            <K/>
+            <NOCLUST/>
+          </lugares_id>
+          <fecha origName="FotoDetecciones__fecha">
+            <K/>
+            <NOCLUST/>
+          </fecha>
+          <placa origName="Vehiculos__placa"/>
+          <velocidad origName="FotoDetecciones__velocidad"/>
+        </columns>
+      </tbl>
+      <tbl>
+        <table7/>
+        <columns>
+          <fecha origName="FotoDetecciones__fecha">
+            <K/>
+            <NOCLUST/>
+          </fecha>
+          <lugares_id origName="Lugares__id">
+            <C>
+ASC            </C>
+          </lugares_id>
+          <placa origName="Vehiculos__placa">
+            <S/>
+            <NOCLUST/>
+          </placa>
+          <velocidad origName="FotoDetecciones__velocidad">
+            <S/>
+            <NOCLUST/>
+          </velocidad>
+        </columns>
+      </tbl>
+      <tbl>
+        <table8/>
+        <columns>
+          <lugares_id origName="Lugares__id">
+            <K/>
+            <NOCLUST/>
+          </lugares_id>
+          <fecha origName="FotoDetecciones__fecha">
+            <C>
+ASC            </C>
+          </fecha>
+          <placa origName="Vehiculos__placa"/>
+          <velocidad origName="FotoDetecciones__velocidad"/>
+        </columns>
+      </tbl>
+    </Q3>
+    <Q4 qTemplate="SELECT |s|FotoDetecciones__fecha|e|, |s|Lugares__nombre|e|, |s|Vehiculos__placa|e| FROM |s|tableName|e| WHERE |s|FotoDetecciones__fecha|e|=?;">
+      <tbl>
+        <table9/>
+        <columns>
+          <fecha origName="FotoDetecciones__fecha">
+            <K/>
+            <NOCLUST/>
+          </fecha>
+          <lugares_nombre origName="Lugares__nombre"/>
+          <placa origName="Vehiculos__placa"/>
+        </columns>
+      </tbl>
+    </Q4>
+    <Q5 qTemplate="SELECT |s|FotoDetecciones__fecha|e|, |s|Vehiculos__placa|e|, |s|Lugares__nombre|e|, |s|FotoDetecciones__velocidad|e| FROM |s|tableName|e| WHERE |s|Usuarios__id|e|=?;">
+      <tbl>
+        <table10/>
+        <columns>
+          <usuarios_id origName="Usuarios__id">
+            <K/>
+            <NOCLUST/>
+          </usuarios_id>
+          <fecha origName="FotoDetecciones__fecha">
+            <C>
+ASC            </C>
+          </fecha>
+          <placa origName="Vehiculos__placa"/>
+          <lugares_nombre origName="Lugares__nombre"/>
+          <velocidad origName="FotoDetecciones__velocidad"/>
+        </columns>
+      </tbl>
+    </Q5>
+    <Q6 qTemplate="SELECT |s|FotoDetecciones__fecha|e|, |s|FotoDetecciones__velocidad|e|, |s|Vehiculos__placa|e| FROM |s|tableName|e| WHERE |s|Lugares__id|e|=?;">
+      <tbl>
+        <table11/>
+        <columns>
+          <lugares_id origName="Lugares__id">
+            <K/>
+            <NOCLUST/>
+          </lugares_id>
+          <fecha origName="FotoDetecciones__fecha">
+            <C>
+ASC            </C>
+          </fecha>
+          <velocidad origName="FotoDetecciones__velocidad"/>
+          <placa origName="Vehiculos__placa"/>
+        </columns>
+      </tbl>
+    </Q6>
+    <LOGICAL_CONFIGEL>
+{"table0":"","table1":"","table5":"","table9":"","table10":"","table11":""}    </LOGICAL_CONFIGEL>
+  </LOGICAL_MODEL>
+  <PHYSICAL_MODEL>
+{"0":{"listOfInputs":"infracciones_by_fechas,placa,fecha,lugares_nombre","listOfSelectValues":"TEXT,K,TIMESTAMP,cup,TEXT,"},"1":{"listOfInputs":"estadisticas,fecha,placa,lugares_nombre,lugares_id","listOfSelectValues":"TIMESTAMP,K,TEXT,K,TEXT,cup,INT,"},"2":{"listOfInputs":"table5,fecha,lugares_id,placa,velocidad","listOfSelectValues":"TEXT,K,TEXT,K,TEXT,,TEXT,"},"3":{"listOfInputs":"table9,fecha,lugares_nombre,placa","listOfSelectValues":"TEXT,K,TEXT,,TEXT,"},"4":{"listOfInputs":"table10,usuarios_id,fecha,placa,lugares_nombre,velocidad","listOfSelectValues":"TEXT,K,TEXT,cup,TEXT,,TEXT,,TEXT,"},"5":{"listOfInputs":"table11,lugares_id,fecha,velocidad,placa","listOfSelectValues":"TEXT,K,TEXT,cup,TEXT,,TEXT,"},"highlightedTables":["table0","table1","table5","table9","table10","table11"]}  </PHYSICAL_MODEL>
+</KDMPROJECT>
