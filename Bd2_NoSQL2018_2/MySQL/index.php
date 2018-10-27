@@ -138,6 +138,15 @@ div {
 		</table>  
 		</form>
 	</td>
+	<td>
+		<!-- Estadistica Mensual - Recuerde cambiar la acción para llamar su programa -->
+		<form name="q5" action="consulta5.php">
+		<table>
+		  <tr><td>Placa:</td><td><input type="text" name="placa" value="AAA111"  maxlength="4"></td></tr>
+		  <tr><td colspan="2"><button class="button mi_color">Informe</button></td></tr>
+		</table>  
+		</form>
+	</td>
 </tr>
 </table>
 </div>
@@ -167,6 +176,15 @@ div {
 		<table>
 		  <tr><td>Fecha:</td><td><input type="text" name="fecha" value="2018/10/01"  maxlength="10"></td></tr>
 		  <tr><td colspan="2"><button class="button mi_color">Infracciones Velocidad</button></td></tr>
+		</table>  
+		</form>
+	</td>
+	<td>
+		<!-- Infracciones Lugar - Recuerde cambiar la acción para llamar su programa -->
+		<form name="q6" action="consulta6.php">
+		<table>
+		  <tr><td>Lugar:</td><td><input type="text" name="lugar" value="1"  maxlength="10"></td></tr>
+		  <tr><td colspan="2"><button class="button mi_color">Infracciones Lugar</button></td></tr>
 		</table>  
 		</form>
 	</td>

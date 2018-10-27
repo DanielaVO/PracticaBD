@@ -19,11 +19,11 @@
 <body>
 <?php
 $time_start = microtime(true); // Tiempo Inicial Proceso
-$rows = "SELECT nombre, id 
+$q = "SELECT nombre, id 
         FROM estadisticas 
         WHERE mes= ${mes} AND year = ${year} AND placa = '${placa}';";
          
-$statement = new Cassandra\SimpleStatement($rows);
+$statement = new Cassandra\SimpleStatement($q);
 $result    = $session->execute($statement);
 
 	foreach($result as $row){

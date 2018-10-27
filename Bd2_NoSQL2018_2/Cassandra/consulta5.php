@@ -17,9 +17,9 @@
 <?php
 $time_start = microtime(true); // Tiempo Inicial Proceso
 
-$rows = "SELECT vehiculos_placa, nombre, vehiculos_placa1 FROM numInfracciones_by_placa WHERE vehiculos_placa= '${placa}';";
+$q = "SELECT vehiculos_placa, nombre, vehiculos_placa1 FROM numInfracciones_by_placa WHERE vehiculos_placa= '${placa}';";
          
-$statement = new Cassandra\SimpleStatement($rows);
+$statement = new Cassandra\SimpleStatement($q);
 $result    = $session->execute($statement);
 
 	foreach($result as $row){

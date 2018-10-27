@@ -21,9 +21,9 @@
 <?php
 $time_start = microtime(true); // Tiempo Inicial Proceso
 /*CREATE TABLE infracciones_by_fecha(id INT, fecha TIMESTAMP, hora INT, nombre TEXT, placa TEXT, PRIMARY KEY (id,fecha)) WITH CLUSTERING ORDER BY (fecha ASC); */
-$rows = "SELECT nombre, placa, hora FROM infracciones_by_fecha WHERE id = 1 AND fecha >= ${fecha} AND fecha < ${f2};";
+$q = "SELECT nombre, placa, hora FROM infracciones_by_fecha WHERE id = 1 AND fecha >= ${fecha} AND fecha < ${f2};";
          
-$statement = new Cassandra\SimpleStatement($rows);
+$statement = new Cassandra\SimpleStatement($q);
 $result    = $session->execute($statement);
 
 	foreach($result as $row){

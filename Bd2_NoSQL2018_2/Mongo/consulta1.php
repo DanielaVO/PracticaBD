@@ -1,19 +1,12 @@
 <?php
 
     $URL_HOME = 'http://localhost:9090/Bd2_NoSQL2018_2/';
-    
-    $cluster   = Cassandra::cluster()
-     ->withContactPoints('127.0.0.1')
-     ->build();
-    $session   = $cluster->connect("fotodetecciones");
+    $mongo = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 
 	/*Se recuperan los argumentos*/
 	 $placa = htmlspecialchars($_GET["placa"]);
 	 $fedesde = htmlspecialchars($_GET["fedesde"]);
 	 $fehasta = htmlspecialchars($_GET["fehasta"]);
-     $desde =  strtotime($fedesde)*1000;
-     $hasta =  strtotime($fehasta)*1000;
-         
 ?>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<h4>Q1- Dado el vehículo(placas) y rango de fechas, se puede consultar las infracciones (mas de 80km).
@@ -22,22 +15,24 @@
 <body>
 <?php
 $time_start = microtime(true); // Tiempo Inicial Proceso
-$q = "SELECT fecha, nombre 
-		 FROM infracciones_by_placa 
-         WHERE placa = '${placa}' AND fecha > ${desde} AND fecha < ${hasta};";
+
+$filter = ['placa' => $placa];
+$options = ['fecha' => [
+                        '$gte' => strtotime($fedesde),
+                        '$lt' => strtotime($fehasta),]
+            ];
+$q = new MongoDB\Driver\Query($filter, $options);
          
-$statement = new Cassandra\SimpleStatement($q);
-$result    = $session->execute($statement);
+$result = $mongo -> executeQuery('tecnicasBD.fotodetecciones', $q);
 
 	foreach($result as $row){
-		$fecha = $row['fecha'];
+		$fecha = date['fecha'];
 		$tiempo = date($fecha);
 		$date = date('Y/m/d', $tiempo/1000);
-		$hora = date('H:i:s', $tiempo/1000);
-		
-	    echo $date . "-"; 
-		echo $hora;
-		echo $row['nombre']. "<br>";
+    
+        echo date('Y/m/d', $row -> fecha);
+        echo date('H:i:s', $row -> fecha);
+		echo $row -> lugar "<br>";
 		 
 	}
 ?>

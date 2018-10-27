@@ -22,7 +22,7 @@
 $time_start = microtime(true); // Tiempo Inicial Proceso
 /*CREATE TABLE infracciones_by_lugar (id INT, fecha TIMESTAMP, hora INT, placa TEXT, velocidad INT, PRIMARY KEY (id,fecha)) WITH CLUSTERING ORDER BY (fecha ASC);
  */
-$rows = "SELECT placa, hora, velocidad 
+$q = "SELECT placa, hora, velocidad 
         FROM infracciones_by_lugar 
         WHERE id = ${lugar} AND fecha >= ${fecha} AND fecha < ${f2};";
          

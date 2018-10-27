@@ -18,9 +18,9 @@
 <?php
 $time_start = microtime(true); // Tiempo Inicial Proceso
 /*CREATE TABLE informeFotoDetecciones(id INT, fecha TIMESTAMP,velocidad INT, placa TEXT, PRIMARY KEY (id)); */
-$rows = "SELECT fecha, velocidad, placa FROM informefotodetecciones WHERE id = ${lugar};";
+$q = "SELECT fecha, velocidad, placa FROM informefotodetecciones WHERE id = ${lugar};";
          
-$statement = new Cassandra\SimpleStatement($rows);
+$statement = new Cassandra\SimpleStatement($q);
 $result    = $session->execute($statement);
 
 	foreach($result as $row){
