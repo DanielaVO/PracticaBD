@@ -170,7 +170,7 @@ div {
 <div>
 <H1>Seleccione la base de datos</H1><br />
 	<a href="Cassandra/index.php" class="button orange">Cassandra</a> 
-	<a href="Mongo/index.php" class="button gray">MongoDB</a> 
+	<a href="MongoDB/index.php" class="button gray">MongoDB</a> 
 	<a href="MySQL/index.php" class="button rosy">MySQL o MariaDB</a> 
 	<br /><br />
 </div>
