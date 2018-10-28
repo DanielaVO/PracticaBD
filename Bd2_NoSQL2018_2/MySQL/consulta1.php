@@ -24,11 +24,11 @@ $q = "SELECT date_format(fecha, '%y/%m/%d') fecha, date_format(fecha, '%H:%i:%s'
       WHERE fecha > '${fedesde}' AND fecha < '${fehasta}'
       AND vehiculos_placa = '${placa}'";
          
-$rows = $conn -> query($q);
+$result = $conn -> query($q);
 
 	foreach($result as $row){
         echo $row['fecha'];
-        echo $row['hora']
+        echo $row['hora'];
 		echo $row['Lugares_id']. "<br>";
 		 
 	}
