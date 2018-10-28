@@ -117,7 +117,7 @@ div {
 <tr>
 	<td>
 		<!-- Consulta Infracciones - Recuerde cambiar la acción para llamar su programa -->
-		<form name="q1" action="">
+		<form name="q1" action="consulta1.php">
 		<table>
 		  <tr><td>Placa:</td><td><input type="text" name="placa" value="AAA111"  maxlength="6"></td></tr>
 		  <tr><td>Fecha desde:</td><td><input type="text" name="fedesde" value="2018/10/01"  maxlength="10"></td></tr>
@@ -129,7 +129,7 @@ div {
 	<td></td>
 	<td>
 		<!-- Estadistica Mensual - Recuerde cambiar la acción para llamar su programa -->
-		<form name="q2" action="">
+		<form name="q2" action="consulta2.php">
 		<table>
 		  <tr><td>Año:</td><td><input type="text" name="anio" value="2018"  maxlength="4"></td></tr>
 		  <tr><td>Mes:</td><td><input type="text" name="mes" value="10"  maxlength="2"></td></tr>
@@ -161,7 +161,7 @@ div {
 <tr>
 	<td>
 		<!-- Consulta velocidades por sitio - Recuerde cambiar la acción para llamar su programa -->
-		<form name="q3" action="">
+		<form name="q3" action="consulta3.php">
 		<table>
 		  <tr><td>Fecha:</td><td><input type="text" name="fecha" value="2018/10/01"  maxlength="10"></td></tr>
 		  <tr><td>Lugar:</td><td><input type="text" name="lugar" value="1"  maxlength="1"></td></tr>
@@ -172,7 +172,7 @@ div {
 	<td></td>
 	<td>
 		<!-- Infracciones Velocidad - Recuerde cambiar la acción para llamar su programa -->
-		<form name="q4" action="">
+		<form name="q4" action="consulta4.php">
 		<table>
 		  <tr><td>Fecha:</td><td><input type="text" name="fecha" value="2018/10/01"  maxlength="10"></td></tr>
 		  <tr><td colspan="2"><button class="button mi_color">Infracciones Velocidad</button></td></tr>

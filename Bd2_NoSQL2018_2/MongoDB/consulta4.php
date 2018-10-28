@@ -28,10 +28,10 @@ $q = new MongoDB\Driver\Query($filterExp);
 $result = $mongo -> executeQuery('tecnicasBD.fotodetecciones', $q);
 
 	foreach($result as $row){
-        echo date('Y/m/d', $row -> fecha) ." - ";
         echo date('H:i:s', $row -> fecha) ." - ";
         echo $row -> nomLugares." - ";
         echo $row -> placa."<br>";
+        
 	}
 ?>
 

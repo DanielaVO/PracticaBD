@@ -22,18 +22,15 @@ echo 'velocidad='. 	$velocidad;'</br>';
 */
 
 /* ==--> Aqui ustede debe hacer la conexion a la base de datos*/
-/*
-// Create connection (Puerto, Usuario, Clave y base datos)
-$conn = new mysqli('localhost:3307', 'root', '','CAMBIAR_ESTE_NOMBRE');
-*/
 
+// Create connection (Puerto, Usuario, Clave y base datos)
+$conn = new mysqli('localhost:3306', 'root', '','fotodeteccionesbd');
+
+$date = date('Y/m/d H:i:s', $tiempo);
 /* ==--> Se arma el Insert*/
-/*
-$sql = "INSERT INTO tabla (columnas...) VALUES( Valores...);";
-*/
+$sql = "INSERT INTO fotodetecciones(fecha, velocidad, vehiculos_placa, Lugares_id) VALUES('${date}', ${velocidad}, '${placa}', ${lugar});";
 
 /* ==--> insertar el o los registros*/
-/*
 $conn->query($sql);
 $conn->close();
 /*retornar el texto con resultado*/

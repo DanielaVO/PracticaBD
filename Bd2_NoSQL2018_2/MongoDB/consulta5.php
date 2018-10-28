@@ -13,29 +13,32 @@
 <?php
 $time_start = microtime(true); // Tiempo Inicial Proceso
 
-$filterGroup = ['placa' => '$placa', 
-                'lugar' => '$lugar'
-            ];
-        
-$filter = ['_id' => $filterGroup, 
-            'total' => ['$sum' => 1] 
-        ];
+$q = new MongoDB\Driver\Command([
+    'aggregate' => 'fotodetecciones',
+    'pipeline' =>[
+        [
+            '$match' =>[
+                'placa' => $placa
+            ]
+        ],
+        [
+          '$group' => [
+                      '_id' => [         
+                         'nomLugares' => '$nomLugares'
+                      ],
+                      'numFoto' => ['$sum' => 1]  
+                ]
+            ]
+          ],
+          'cursor' => new stdClass,
+]);
 
-$group = ['$group' => $filter];
-$json = '[';
-$json .= json_encode($group, JSON_PRETTY_PRINT);
-$json .= ']';
-
-echo $json;
-$q = new MongoDB\Driver\Query($group);
-
-$result = $mongo -> executeQuery('tecnicasBD.fotodetecciones', $q);
+$result = $mongo -> executeCommand('tecnicasBD', $q);
 
 	foreach($result as $row){
-        $lugarQuery = $row -> lugar;
-        echo $row ->    lugar." - ";
-        echo $row -> placa."<br>";
-	}
+        echo $row -> _id-> nomLugares. "-";
+        echo $row -> numFoto."<br>";
+    }
 ?>
 
 <?php

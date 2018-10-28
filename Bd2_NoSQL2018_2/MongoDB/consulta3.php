@@ -27,13 +27,13 @@ $filterExp = ['fecha' => [
 
 $filter = ['$and' => [$filterExp]];
 
-
 $q = new MongoDB\Driver\Query($filter);
          
 $result = $mongo -> executeQuery('tecnicasBD.fotodetecciones', $q);
 
 	foreach($result as $row){
-        echo $row -> nomLugares." - ";
+        echo date('H:i:s', $row -> fecha) ." - ";
+        echo $row -> placa."<br>";
 		echo $row -> velocidad."<br>";
 	}
 ?>

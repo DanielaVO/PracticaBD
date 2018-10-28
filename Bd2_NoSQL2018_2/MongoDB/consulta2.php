@@ -18,23 +18,37 @@ $time_start = microtime(true); // Tiempo Inicial Proceso
 $timeStamp = strtotime("$year-$mes");
 $mes += 1;
 $nextTimeStamp = strtotime("$year-$mes");
-$filterExpr = ['placa' => $placa, 
-                'fecha' => [				
-                    '$gte' => $timeStamp,
-                    '$lt' => $nextTimeStamp
-                ]
-            ];
 
-$filter = ['$and' => [$filterExpr]];
-echo json_encode($filter, JSON_PRETTY_PRINT);
-$q = new MongoDB\Driver\Query($filter);
-         
-$result = $mongo -> executeQuery('tecnicasBD.fotodetecciones', $q);
+$q = new MongoDB\Driver\Command([
+    'aggregate' => 'fotodetecciones',
+    'pipeline' =>[
+        [
+            '$match' =>[
+                'placa' => $placa, 
+                'fecha' => [				
+                            '$gte' => $timeStamp,
+                            '$lt' => $nextTimeStamp
+                            ]
+            ]
+        ],
+        [
+          '$group' => [
+                      '_id' => [         
+                         'nomLugares' => '$nomLugares'
+                      ],
+                      'numPasos' => ['$sum' => 1]  
+                ]
+            ]
+          ],
+          'cursor' => new stdClass,
+]);
+
+$result = $mongo -> executeCommand('tecnicasBD', $q);
 
 	foreach($result as $row){
-        echo $row -> nomLugares." - ";
-		echo $row -> placa."<br>";
-	}
+        echo $row -> _id-> nomLugares. "-";
+		echo $row -> numPasos."<br>";
+    }
 ?>
 
 <?php
