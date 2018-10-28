@@ -15,7 +15,7 @@
 <?php
 $time_start = microtime(true); // Tiempo Inicial Proceso
 
-$filter = ['lugar' => (string) $lugar];
+$filter = ['lugar' => $lugar];
 
 $q = new MongoDB\Driver\Query($filter);
          
