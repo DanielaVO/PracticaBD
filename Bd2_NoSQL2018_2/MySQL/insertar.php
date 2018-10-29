@@ -24,7 +24,7 @@ echo 'velocidad='. 	$velocidad;'</br>';
 /* ==--> Aqui ustede debe hacer la conexion a la base de datos*/
 
 // Create connection (Puerto, Usuario, Clave y base datos)
-$conn = new mysqli('localhost:3306', 'root', '','fotodeteccionesbd');
+$conn = new mysqli('127.0.0.1:3306', 'root', '','fotoDeteccionesBD');
 
 $date = date('Y/m/d H:i:s', $tiempo);
 /* ==--> Se arma el Insert*/
