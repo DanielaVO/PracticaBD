@@ -21,7 +21,7 @@
 $time_start = microtime(true); // Tiempo Inicial Proceso
 $q = "SELECT date_format(fecha, '%Y/%m/%d') fecha, date_format(fecha, '%H:%i:%s') hora, Lugares_id 
       FROM fotodetecciones
-      WHERE fecha >= '${fedesde}' AND fecha < '${fehasta}'
+      WHERE fecha BETWEEN '${fedesde}' AND '${fehasta}'
       AND vehiculos_placa = '${placa}'";
          
 $result = $conn -> query($q);

@@ -18,12 +18,12 @@
 $time_start = microtime(true); // Tiempo Inicial Proceso
 
 $timeStamp = strtotime("$year-$mes");
-$mes += 1;
+$mesF = $mes + 1;
 $nextTimeStamp = strtotime("$year-$mes");
 
 $q = "SELECT Lugares_id, COUNT(*) numPasos
       FROM fotodetecciones
-      WHERE fecha >= '${timeStamp}' AND fecha < '${nextTimeStamp}'
+      WHERE fecha BETWEEN '$year-$mes-01' AND DATE_ADD('$year-$mes-01', INTERVAL 1 MONTH)
       AND vehiculos_placa = '${placa}'
       GROUP BY Lugares_id";
          

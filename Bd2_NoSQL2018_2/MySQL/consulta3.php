@@ -15,12 +15,13 @@ $conn = new mysqli('127.0.0.1:3306', 'root', '','fotodeteccionesbd');
 <body>
 <?php
 $time_start = microtime(true); // Tiempo Inicial Proceso
-$fecha = strtotime($date);
-$fechaEnd = strtotime($date . ' +1 day');
 
-$q = "SELECT date_format(fecha, '%H:%i:%s') hora, vahiculos_placa, velocidad 
+$fechaEnd = strtotime($date . ' +1 day');
+$fechaEnd = date('Y/m/d', $fechaEnd);
+
+$q = "SELECT date_format(fecha, '%H:%i:%s') hora, vehiculos_placa, velocidad 
       FROM fotodetecciones
-      WHERE fecha >= '${fecha}' AND fecha < '${fechaEnd}'
+      WHERE fecha BETWEEN '${date}' AND DATE_ADD('${date}', INTERVAL 1 DAY)
       AND Lugares_id = '${lugar}'";
      
 $result = $conn -> query($q);

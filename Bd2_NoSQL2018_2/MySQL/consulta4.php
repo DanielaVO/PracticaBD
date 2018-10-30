@@ -14,12 +14,9 @@
 <?php
 $time_start = microtime(true); // Tiempo Inicial Proceso
 
-$fecha = strtotime($date);
-$fechaEnd = strtotime($date . ' +1 day');
-
 $q = "SELECT date_format(fecha, '%H:%i:%s') hora, Lugares_id, vehiculos_placa
       FROM fotodetecciones
-      WHERE DATE(fecha) = '${fecha}";
+      WHERE fecha BETWEEN '${date}' AND DATE_ADD('${date}', INTERVAL 1 DAY)";
          
 $result = $conn -> query($q);
 
