@@ -29,8 +29,8 @@
         $nextTimeStamp = strtotime("$year-$mes");
 
         /*Query a ejecutar*/
-        $q = "SELECT Lugares_id, COUNT(*) numPasos
-            FROM fotodetecciones
+        $q = "SELECT l.nombre nombre, COUNT(*) numPasos
+            FROM fotodetecciones f INNER JOIN lugares l ON f.Lugares_id = l.id
             WHERE fecha BETWEEN '$year-$mes-01' AND DATE_ADD('$year-$mes-01', INTERVAL 1 MONTH)
             AND vehiculos_placa = '${placa}'
             GROUP BY Lugares_id";
@@ -42,7 +42,7 @@
 
         ?>
             <tr>
-                <td><?php echo $row['Lugares_id'];?></td>
+                <td><?php echo $row['nombre'];?></td>
                 <td><?php echo $row['numPasos'];?></td>
             </tr>
         <?php

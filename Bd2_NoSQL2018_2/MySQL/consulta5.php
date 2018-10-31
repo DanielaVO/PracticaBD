@@ -23,9 +23,10 @@
 	<?php
 	$time_start = microtime(true); // Tiempo Inicial Proceso
 	/*Query a ejecutar*/
-	$q = "SELECT Lugares_id, COUNT(*) numFoto 
-		FROM fotodetecciones
-		WHERE vehiculos_placa = '${placa}'";
+	$q = "SELECT l.nombre nombre, COUNT(*) numFoto 
+			FROM fotodetecciones f INNER JOIN lugares l ON f.Lugares_id = l.id
+			WHERE Vehiculos_placa = '${placa}'
+			GROUP BY l.nombre";
 			
 	$result = $conn -> query($q);
 
@@ -33,8 +34,8 @@
 	foreach($result as $row){	 
 	?>
 	<tr>
+		<td><?php echo $row['nombre'];?></td>
 		<td><?php echo $row['numFoto'];?></td>
-		<td><?php echo $row['Lugares_id'];?></td>
 	</tr>
 	<?php
 	}

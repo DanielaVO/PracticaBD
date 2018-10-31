@@ -24,8 +24,8 @@
 $time_start = microtime(true); // Tiempo Inicial Proceso
 
 /*Query a ejecutar*/
-$q = "SELECT date_format(fecha, '%H:%i:%s') hora, Lugares_id, vehiculos_placa
-      FROM fotodetecciones
+$q = "SELECT date_format(fecha, '%H:%i:%s') hora, l.nombre nombre, vehiculos_placa
+      FROM fotodetecciones f INNER JOIN lugares l ON f.Lugares_id = l.id
       WHERE fecha BETWEEN '${date}' AND DATE_ADD('${date}', INTERVAL 1 DAY)";
 
 /*Ejecuta el query */
@@ -36,7 +36,7 @@ foreach($result as $row){
 ?>
 <tr>
     <td><?php echo $row['hora']; ?></td>
-    <td><?php echo $row['Lugares_id'];?></td>
+    <td><?php echo $row['nombre'];?></td>
     <td><?php echo $row['vehiculos_placa'];?></td>
     </tr>
 <?php
@@ -49,7 +49,6 @@ $time = $time_end - $time_start;
 ?>
 	<tr>
 		<td colspan="3" align="center"><b><h4>Tiempo del proceso: <?php echo $time; ?></h4></td>
-
 	</tr>
 </table>
 </body>

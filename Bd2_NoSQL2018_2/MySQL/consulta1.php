@@ -29,8 +29,8 @@
     <?php
     $time_start = microtime(true); // Tiempo Inicial Proceso
     /*Query a ejecutar*/
-    $q = "SELECT date_format(fecha, '%Y/%m/%d') fecha, date_format(fecha, '%H:%i:%s') hora, Lugares_id 
-        FROM fotodetecciones
+    $q = "SELECT date_format(fecha, '%Y/%m/%d') fecha, date_format(fecha, '%H:%i:%s') hora, l.nombre nombre 
+        FROM fotodetecciones f INNER JOIN lugares l ON f.Lugares_id = l.id
         WHERE fecha BETWEEN '${fedesde}' AND '${fehasta}'
         AND vehiculos_placa = '${placa}'";
 
@@ -43,7 +43,7 @@
         <tr>
             <td><?php echo $row['fecha'];?></td>
             <td><?php echo $row['hora'];?></td>
-            <td><?php echo $row['Lugares_id'];?></td>
+            <td><?php echo $row['nombre'];?></td>
         </tr>
     <?php
     }
