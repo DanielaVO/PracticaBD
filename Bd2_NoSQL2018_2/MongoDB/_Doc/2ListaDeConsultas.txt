@@ -1,0 +1,57 @@
+Q1- Dado el vehículo(placas) y rango de fechas, se puede consultar las infracciones (mas de 80km).
+Listando fecha, hora, lugar.
+
+{placa: "AAA111"}, {fecha: {$gte: 1540688750, $lt: 1540688800}}
+
+Q2- Dada el año, mes y el vehículo(placas), se puede consultar las estadísticas de total de pasos por cada lugar. 
+Listando lugar y número de pasadas.
+
+[{
+  $match: {
+    placa: "AAA222",
+    fecha: {
+        $gte: 1540688750,
+        $lt: 1540688800
+    }
+  }
+}, {
+  $group: {
+    _id: {
+        placa: "$placa",
+        nomLugares: "$nomLugares"
+    },
+    lugar: {
+      $sum: 1
+    }
+  }
+}]
+
+Q3- Dada una fecha y lugar se puede consultar las horas del día, vehículo(placas) y velocidad.
+
+{fecha: {$gte: 1540688750, $lt: 1540688800}}, {lugar: 1}
+
+Q4- Dado una fecha se puede consultar los vehículos(placas) que sobrepasaron 80km, listando hora del lugar y placa
+
+{fecha: {$gte: 1540688750, $lt: 1540688800}}
+
+Q5- Dada una placa consultar el numero de foto detecciones que posee y el lugar donde fue capturada.
+
+[{
+  $match: {
+    placa: "AAA222",
+  }
+}, {
+  $group: {
+    _id: {
+        placa: "$placa",
+        nomLugares: "$nomLugares"
+    },
+    lugar: {
+      $sum: 1
+    }
+  }
+}]
+
+Q6- Listar toda la información de las foto detecciones de un lugar determinado. Listando fecha, velocidad, vehículo(placa).
+
+{lugar: 1}
