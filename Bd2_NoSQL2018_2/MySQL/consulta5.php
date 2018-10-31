@@ -8,28 +8,44 @@
      $conn = new mysqli('127.0.0.1:3306', 'root', '','fotodeteccionesbd');
          
 ?>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<h4>Q5- Dada una placa consultar el numero de foto detecciones que posee y el lugar donde fue capturada.</h4>
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <body>
-<?php
-$time_start = microtime(true); // Tiempo Inicial Proceso
-$q = "SELECT Lugares_id, COUNT(*) numFoto 
-      FROM fotodetecciones
-      WHERE vehiculos_placa = '${placa}'";
-         
-$result = $conn -> query($q);
+	<table table width="70%" border="1px" align="center">
+		<tr align="center">
+			<td colspan="2"><h4><font color="PINK">Q5- Dada una placa consultar el numero de 
+				foto detecciones que posee y el lugar donde fue capturada.</font></h4></td>
+		</tr>
+		<tr>
+			<td align="center"><b>Lugar</td>
+			<td align="center"><b>Número fotodetecciones</td>		
+		</tr>
+				
+	<?php
+	$time_start = microtime(true); // Tiempo Inicial Proceso
+	/*Query a ejecutar*/
+	$q = "SELECT Lugares_id, COUNT(*) numFoto 
+		FROM fotodetecciones
+		WHERE vehiculos_placa = '${placa}'";
+			
+	$result = $conn -> query($q);
 
-	foreach($result as $row){
-        echo $row['numFoto']. "-";
-		echo $row['Lugares_id']. "<br>";
-		 
+	/*Ciclo que recupera los datos de la consulta */
+	foreach($result as $row){	 
+	?>
+	<tr>
+		<td><?php echo $row['numFoto'];?></td>
+		<td><?php echo $row['Lugares_id'];?></td>
+	</tr>
+	<?php
 	}
-?>
-
-<?php
-$time_end = microtime(true); 
-$time = $time_end - $time_start; 
-echo "\n</br></br><h2>Tiempo de ejecución ".$time." segundos</h2>";
-?>
+	?>
+	<?php
+	$time_end = microtime(true); 
+	$time = $time_end - $time_start; 
+	?>
+	<tr>
+		<td colspan="3" align="center"><b><h4>Tiempo del proceso: <?php echo $time; ?></h4></td>
+	</tr>
+	</table>
 </body>
 </html>

@@ -1,0 +1,18 @@
+Q1- Dado el vehículo(placas) y rango de fechas, se puede consultar las infracciones (mas de 80km).Listando fecha, hora, lugar.
+
+SELECT fecha, nombre FROM infracciones_by_placa WHERE placa = 'AAA111' AND fecha > 1538352000000 AND fecha < 1541030400000;
+
+Q2- Dada el año, mes y el vehículo(placas), se puede consultar las estadísticas de total de pasos por cada lugar. Listando lugar y número de pasadas
+
+SELECT nombre, id FROM estadisticas WHERE mes= 10 AND year = 2018 AND placa = 'AAA111';
+
+Q3- Dada una fecha y lugar se puede consultar las horas del día, vehículo(placas) y velocidad.
+
+SELECT placa, fecha, velocidad FROM infracciones_by_lugar WHERE id = 1 AND fecha >= 1540944000000 AND fecha < 1541030400000;
+
+Q4- Dado una fecha se puede consultar los vehículos(placas) que sobrepasaron 80km, listando hora del día, lugar y placa
+
+Q5- Dada una placa consultar el numero de foto detecciones que posee y el lugar donde fue capturada.
+
+Q6- Listar toda la información de las foto detecciones de un lugar determinado. Listando fecha, velocidad, vehículo(placa)
+

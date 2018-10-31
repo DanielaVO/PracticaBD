@@ -7,30 +7,50 @@
     $conn = new mysqli('127.0.0.1:3306', 'root', '','fotodeteccionesbd');
     
 ?>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<h4>Q4- Dado una fecha se puede consultar los vehículos(placas) que sobrepasaron 80km, listando hora del
-        día, lugar y placa.</h4>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <body>
+<table table width="70%" border="1px" align="center">
+    <tr align="center">
+        <td colspan="3"><h4><font color="PINK">Q4- Dado una fecha se puede consultar los vehículos(placas) que sobrepasaron 80km, listando hora del
+            día, lugar y placa</font></h4></td>
+</tr>
+<tr>
+    <td align="center"><b>Hora</td>
+    <td align="center"><b>Lugar</td>
+    <td align="center"><b>Placa</td>
+</tr>
+    
 <?php
 $time_start = microtime(true); // Tiempo Inicial Proceso
 
+/*Query a ejecutar*/
 $q = "SELECT date_format(fecha, '%H:%i:%s') hora, Lugares_id, vehiculos_placa
       FROM fotodetecciones
       WHERE fecha BETWEEN '${date}' AND DATE_ADD('${date}', INTERVAL 1 DAY)";
-         
+
+/*Ejecuta el query */
 $result = $conn -> query($q);
 
-	foreach($result as $row){
-        echo $row['hora']. "-";
-        echo $row['Lugares_id']. "-";
-		echo $row['vehiculos_placa']. "<br>";
-	}
+/*Ciclo que recupera los datos de la consulta */
+foreach($result as $row){
 ?>
-
+<tr>
+    <td><?php echo $row['hora']; ?></td>
+    <td><?php echo $row['Lugares_id'];?></td>
+    <td><?php echo $row['vehiculos_placa'];?></td>
+    </tr>
 <?php
+}
+?>
+<?php
+/*Tiempo del proceso */
 $time_end = microtime(true); 
 $time = $time_end - $time_start; 
-echo "\n</br></br><h2>Tiempo de ejecución ".$time." segundos</h2>";
 ?>
+	<tr>
+		<td colspan="3" align="center"><b><h4>Tiempo del proceso: <?php echo $time; ?></h4></td>
+
+	</tr>
+</table>
 </body>
 </html>
