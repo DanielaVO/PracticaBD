@@ -25,7 +25,6 @@ $lugar = htmlspecialchars($_GET["lugar"]);
                 
                 <?php
                 $time_start = microtime(true); // Tiempo Inicial Proceso
-                /*CREATE TABLE informeFotoDetecciones (hash VARCHAR, id INT, fecha TIMESTAMP, velocidad INT, placa TEXT, PRIMARY KEY (id,hash)) WITH CLUSTERING ORDER BY (hash ASC); */
                 /*Query a ejecutar*/
                 $q = "SELECT fecha, velocidad, placa 
                         FROM informefotodetecciones 

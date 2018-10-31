@@ -35,7 +35,7 @@ $time_start = microtime(true); // Tiempo Inicial Proceso
 /*Query a ejecutar*/
 $q = "SELECT fecha, nombre 
 		 FROM infracciones_by_placa 
-         WHERE placa = '${placa}' AND fecha > ${desde} AND fecha < ${hasta};";
+         WHERE placa = '${placa}' AND fecha >= ${desde} AND fecha < ${hasta};";
 
 /*Ejecuta el query */
 $statement = new Cassandra\SimpleStatement($q);

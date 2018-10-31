@@ -14,8 +14,6 @@ $fecha =  strtotime($date)*1000;
 $fehasta = strtotime($date . "+1 days");
 $f2 = $fehasta *1000;
 
-echo $fecha;
-echo $f2;
 ?>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <body>

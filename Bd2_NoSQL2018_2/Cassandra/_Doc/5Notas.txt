@@ -1,0 +1,1 @@
+En la consulta Q6(Listar toda la información de las foto detecciones de un lugar determinado. Listando fecha, velocidad, vehículo(placa)) fue necesario la creación de un hash con PHP para tener una primary key compuesta y que el id del lugar se pudiera repetir en dicha consulta, es decir, que la consulta retornara toda la información del lugar. 

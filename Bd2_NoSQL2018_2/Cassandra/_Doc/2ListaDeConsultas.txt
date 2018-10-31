@@ -12,7 +12,12 @@ SELECT placa, fecha, velocidad FROM infracciones_by_lugar WHERE id = 1 AND fecha
 
 Q4- Dado una fecha se puede consultar los vehículos(placas) que sobrepasaron 80km, listando hora del día, lugar y placa
 
+SELECT nombre, placa, fecha FROM infracciones_by_fecha WHERE id = 1 AND fecha >= 1540944000000 AND fecha < 1541030400000;
+
 Q5- Dada una placa consultar el numero de foto detecciones que posee y el lugar donde fue capturada.
+
+SELECT nombre, vehiculos_placa1 FROM numInfracciones_by_placa WHERE vehiculos_placa= 'AAA111';
 
 Q6- Listar toda la información de las foto detecciones de un lugar determinado. Listando fecha, velocidad, vehículo(placa)
 
+SELECT fecha, velocidad, placa FROM informefotodetecciones WHERE id = 2;
