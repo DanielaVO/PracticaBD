@@ -1,4 +1,4 @@
-Q1- Dado el vehículo(placas) y rango de fechas, se puede consultar las infracciones (mas de 80km).
+Q1- Dado el vehï¿½culo(placas) y rango de fechas, se puede consultar las infracciones (mas de 80km).
 Listando fecha, hora, lugar.
 
 SELECT date_format(fecha, '%Y/%m/%d') fecha, date_format(fecha, '%H:%i:%s') hora, Lugares_id 
@@ -7,29 +7,29 @@ WHERE fecha BETWEEN '1538352000000' AND '1541030400000'
 AND vehiculos_placa = 'AAA111';
 
 
-Q2- Dada el año, mes y el vehículo(placas), se puede consultar las estadísticas de total de pasos por cada lugar. Listando lugar y número de pasadas.
+Q2- Dada el aï¿½o, mes y el vehï¿½culo(placas), se puede consultar las estadï¿½sticas de total de pasos por cada lugar. Listando lugar y nï¿½mero de pasadas.
 
 SELECT Lugares_id, COUNT(*) numPasos
 FROM fotodetecciones
-WHERE fecha BETWEEN '2018-10-01   AND '2018-11-01'
+WHERE fecha BETWEEN '2018-10-01' AND '2018-11-01'
 AND vehiculos_placa = 'AAA111'
 GROUP BY 01;
 
 
-Q3- Dada una fecha y lugar se puede consultar las horas del día, vehículo(placas) y velocidad.
+Q3- Dada una fecha y lugar se puede consultar las horas del dï¿½a, vehï¿½culo(placas) y velocidad.
 
 SELECT date_format(fecha, '%H:%i:%s') hora, vehiculos_placa, velocidad 
 FROM fotodetecciones
-WHERE fecha BETWEEN 1538352000000   AND 1541030400000 
+WHERE fecha BETWEEN '2018-10-01' AND '2018-11-01'
 AND Lugares_id = '01;
 
 
-Q4- Dado una fecha se puede consultar los vehículos(placas) que sobrepasaron 80km, listando hora del
-            día, lugar y placa.
+Q4- Dado una fecha se puede consultar los vehï¿½culos(placas) que sobrepasaron 80km, listando hora del
+            dï¿½a, lugar y placa.
 
 SELECT date_format(fecha, '%H:%i:%s') hora, Lugares_id, vehiculos_placa
 FROM fotodetecciones
-WHERE fecha BETWEEN 1538352000000    AND 1541030400000 ;
+WHERE fecha BETWEEN '2018-10-01'AND '2018-11-01';
 
 
 Q5- Dada una placa consultar el numero de foto detecciones que posee y el lugar donde fue capturada.
@@ -38,8 +38,8 @@ SELECT Lugares_id, COUNT(*) numFoto
 FROM fotodetecciones
 WHERE vehiculos_placa = 'AAA111';
 
-Q6- Listar toda la información de las foto detecciones de un
-                lugar determinado. Listando fecha, velocidad, vehículo(placa).
+Q6- Listar toda la informaciï¿½n de las foto detecciones de un
+                lugar determinado. Listando fecha, velocidad, vehï¿½culo(placa).
 SELECT date_format(fecha, '%Y/%m/%d') fecha, velocidad, vehiculos_placa
 FROM fotodetecciones
 WHERE Lugares_id = 01;
