@@ -27,7 +27,7 @@ CREATE TABLE numInfracciones_by_placa (vehiculos_placa TEXT, fecha TIMESTAMP, no
 /* SELECT vehiculos_placa, nombre, vehiculos_placa1 FROM numInfracciones_by_placa WHERE vehiculos_placa=?; */
 
 // Q6:
-CREATE TABLE informeFotoDetecciones (id INT, fecha TIMESTAMP, velocidad INT, placa TEXT, PRIMARY KEY (id, fecha)) WITH CLUSTERING ORDER BY (fecha ASC);
+CREATE TABLE informeFotoDetecciones (dummy INT, id INT, fecha TIMESTAMP, velocidad INT, placa TEXT, PRIMARY KEY (dummy, id )) WITH CLUSTERING ORDER BY (fecha ASC);
 
-/* SELECT fecha, velocidad, placa FROM informeFotoDetecciones WHERE id=? and fecha=?; */
+/* SELECT fecha, velocidad, placa FROM informeFotoDetecciones WHERE dummy = 1 and id=?; */
 

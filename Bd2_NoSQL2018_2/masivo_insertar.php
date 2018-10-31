@@ -5,7 +5,7 @@
 	Tecnicas avanzadas de base de datos - UDEM
 */
 
-	/*Usted debe cambiar esto segun su configuracion del proyecto (ubicacion dentro del wampp y el puerto del pache*/
+	/*Usted debe cambiar esto segun su configuracion del proyecto (ubicacion dentro del wampp y el puerto del apache*/
 	//$URL_HOME = 'http://localhost/Bd2_NoSQL2018_2/';
 	$URL_HOME = 'http://localhost:9090/Bd2_NoSQL2018_2/';
 
