@@ -3,7 +3,7 @@ Listando fecha, hora, lugar.
 
 SELECT date_format(fecha, '%Y/%m/%d') fecha, date_format(fecha, '%H:%i:%s') hora, Lugares_id 
 FROM fotodetecciones
-WHERE fecha BETWEEN '1538352000000' AND '1541030400000'
+WHERE fecha BETWEEN '2018-10-01' AND '2018-11-01'
 AND vehiculos_placa = 'AAA111';
 
 
