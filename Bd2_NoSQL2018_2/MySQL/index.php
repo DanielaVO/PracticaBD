@@ -112,7 +112,7 @@ div {
 <table>
 <tr><th colspan="3"><H1>Usuario</H1></th></tr>
 <tr>
-	<td><H3>Consulta Infracciones</H3></td><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td><H3>Estadistica Mensual</H3></td>
+<td><H3>Consulta Infracciones</H3></td><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td><H3>Estadistica Mensual</H3></td><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td><H3>Consulta Informe por placas</H3></td>
 </tr>
 <tr>
 	<td>
@@ -137,7 +137,8 @@ div {
 		  <tr><td colspan="2"><button class="button mi_color">Estadistica Mensual</button></td></tr>
 		</table>  
 		</form>
-	</td>
+		</td>
+	<td></td>
 	<td>
 		<!-- Informe placa - Recuerde cambiar la acción para llamar su programa -->
 		<form name="q5" action="consulta5.php">
@@ -150,13 +151,13 @@ div {
 </tr>
 </table>
 </div>
-</br>
+</tr>
 <!-- Formularios para la vista del transito -->
 <div>
 <table>
 <tr><th colspan="3"><H1>Agente del transito</H1></th></tr>
 <tr>
-	<td><H3>Consulta velocidades por sitio</H3></td><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td><H3>Infracciones Velocidad</H3></td>
+<td><H3>Consulta velocidades por sitio</H3></td><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td><H3>Infracciones Velocidad</H3></td><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td><H3>Infracciones Lugar</H3></td>
 </tr>
 <tr>
 	<td>
@@ -178,7 +179,8 @@ div {
 		  <tr><td colspan="2"><button class="button mi_color">Infracciones Velocidad</button></td></tr>
 		</table>  
 		</form>
-	</td>
+		</td>
+	<td></td>
 	<td>
 		<!-- Infracciones Lugar - Recuerde cambiar la acción para llamar su programa -->
 		<form name="q6" action="consulta6.php">
